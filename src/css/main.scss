@@ -277,11 +277,16 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
 
   .header__img {
     margin-top: 150px;
+    margin-right: 40px;
   }
 
   .timeline {
     padding-left: 0rem;
     padding-right: 0rem;
+  }
+
+  .section {
+    padding-top: 5rem;
   }
 }
 
