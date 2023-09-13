@@ -1,8 +1,8 @@
 /* NAVBAR */
 .navbar {
-  margin-right: 20px;
-  margin-left: 20px;
-  min-width: 250px;
+  // margin-right: 20px;
+  // margin-left: 20px;
+  max-width: 100rem;
 }
 
 .navbar__img-logo {
@@ -95,77 +95,170 @@
   font-weight: 500;
 }
 
-/*TIMELINE*/
+/*==================================
+    TIMELINE
+==================================*/
+$primary-color: rgb(46, 46, 46);
+$primary-color-hover: scale-color($primary-color, $lightness: 32%);
+/*-- GENERAL STYLES
+    ------------------------------*/
+
 .timeline {
-  margin: 0 auto;
-  max-width: 850px;
-  display: grid;
-  grid-template-columns: 1fr 3px 1fr;
-  font-family: "Fira Sans", sans-serif;
-  color: #777777;
+  line-height: 1.4em;
+  list-style: none;
+  max-width: 100rem;
+  margin: 0 auto 10rem auto;
+
+  width: 100%;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: inherit;
+  }
 }
 
-.timeline__component {
-  margin: 0 20px 20px 20px;
-}
+/*----- TIMELINE ITEM -----*/
 
-.timeline__component--bg {
-  padding: 1.5em;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 3px grey;
-  border-radius: 10px;
-}
-
-/* LEAVE TILL LAST */
-.timeline__component--bottom {
-  margin-bottom: 0;
-}
-
-.timeline__middle {
+.timeline-item {
+  padding-left: 40px;
   position: relative;
-  background: #d6d6d6;
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 
-.timeline__point {
+/*----- TIMELINE INFO -----*/
+
+.timeline-info {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0 0 0.5em 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/*----- TIMELINE MARKER -----*/
+.timeline-marker {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 15px;
-  height: 15px;
-  background: black;
-  border-radius: 50%;
-}
-
-/* LEAVE TILL LAST */
-.timeline__point--bottom {
-  top: initial;
   bottom: 0;
+  left: 0;
+  width: 15px;
+  &:before {
+    background: $primary-color;
+    border: 3px solid transparent;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: 15px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 15px;
+    transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+  }
+  &:after {
+    content: "";
+    width: 3px;
+    background: #ccd5db;
+    display: block;
+    position: absolute;
+    top: 24px;
+    bottom: 0;
+    left: 6px;
+  }
+  .timeline-item:last-child &:after {
+    content: none;
+  }
+}
+.timeline-item:not(.period):hover .timeline-marker:before {
+  background: transparent;
+  border: 3px solid $primary-color;
 }
 
-.timeline__date--right {
-  text-align: right;
-  color: black;
+/*----- TIMELINE CONTENT -----*/
+
+.timeline-content {
+  padding-bottom: 40px;
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
-.timeline__title {
-  margin: 0;
-  font-size: 1.15em;
-  font-weight: bold;
-  color: black;
+/*----- TIMELINE PERIOD -----*/
+
+.period {
+  padding: 0;
+  .timeline-info {
+    display: none;
+  }
+  .timeline-marker {
+    &:before {
+      background: transparent;
+      content: "";
+      width: 15px;
+      height: auto;
+      border: none;
+      border-radius: 0;
+      top: 0;
+      bottom: 30px;
+      position: absolute;
+      border-top: 3px solid #ccd5db;
+      border-bottom: 3px solid #ccd5db;
+    }
+    &:after {
+      content: "";
+      height: 32px;
+      top: auto;
+    }
+  }
+  .timeline-content {
+    padding: 40px 0 70px;
+  }
+  .timeline-title {
+    margin: 0;
+  }
 }
 
-.timeline__paragraph {
-  line-height: 1.5;
-}
+/*----------------------------------------------
+      MOD: TIMELINE SPLIT
+  ----------------------------------------------*/
 
-.timeline__date {
-  color: black;
-  font-weight: bold;
-}
-
-.titol {
-  font-style: italic;
+.timeline-split {
+  @media (min-width: 768px) {
+    .timeline {
+      display: table;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .timeline-item {
+      display: table-row;
+      padding: 0;
+    }
+    .timeline-info,
+    .timeline-marker,
+    .timeline-content,
+    .period .timeline-info {
+      display: table-cell;
+      vertical-align: top;
+    }
+    .timeline-marker {
+      position: relative;
+    }
+    .timeline-content {
+      padding-left: 30px;
+    }
+    .timeline-info {
+      padding-right: 30px;
+    }
+    .period .timeline-title {
+      position: relative;
+      left: -45px;
+    }
+  }
 }
 
 //If the browser window is 990px or smaller,
@@ -184,6 +277,11 @@
 
   .header__img {
     margin-top: 150px;
+  }
+
+  .timeline {
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 }
 
