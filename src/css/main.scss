@@ -293,6 +293,7 @@ $primary-color-hover: scale-color($primary-color, $lightness: 32%);
   .header {
     text-align: center;
     display: block;
+    padding-top: 10rem;
   }
 
   .navbar__img-logo {

@@ -28,7 +28,9 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light shadow navbar-inverse fixed-top"
+    >
       <button type="button" class="btn btn-link nav-button-name">
         <img
           src="../src/assets/imgs/logo.png"
@@ -52,21 +54,19 @@
       <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="#section--header">Home </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About me</a>
+            <a class="nav-link" href="#section-about-me">About me</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Send feedback</a>
+            <a class="nav-link" href="#section--feedback">Send feedback</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <header class="header">
+    <header class="header" id="section--header">
       <h1>
         Hi there!<br />I'm <span> Călin Corcoțoi</span>,<br />
         a developer from <br />
@@ -80,7 +80,7 @@
       <h4>First solve the problem. Then write the code.</h4>
     </header>
 
-    <section class="section" id="section--1">
+    <section class="section" id="section-about-me">
       <div class="section__title">
         <h2 class="section__description">About me</h2>
         <h3 class="section__header">
@@ -139,7 +139,7 @@
           <div class="timeline-marker"></div>
           <div class="timeline-content">
             <h3 class="timeline-title">
-              Embedded Software Test Engineer at HELLA
+              Embedded Software Test Engineer at Hella
             </h3>
             <p>
               In essence, my role involves extensive testing, mentoring, GitLab
@@ -175,14 +175,14 @@
       </ul>
     </section>
 
-    <section class="section section--feedback bg-dark">
+    <section class="section section--feedback bg-dark" id="section--feedback">
       <div class="section__title">
         <h3 class="section__header">
           Tell me what you liked, what you didn't like. It's important to me to
           keep doing what's right and improve what isn't.
         </h3>
       </div>
-      <button type="button" class="btn btn-info">
+      <button type="button" class="btn btn-info btn-send-message">
         <i class="bi bi-send-fill"> Send message </i>
       </button>
     </section>
@@ -191,26 +191,10 @@
       <div class="container p-4 pb-0">
         <!-- Section: Social media -->
         <section class="mb-8">
-          <!-- Facebook -->
-          <a
-            class="btn btn-outline-light m-2 rounded-circle"
-            href="#!"
-            role="button"
-            ><i class="bi bi-facebook"></i
-          ></a>
-
-          <!-- Instagram -->
-          <a
-            class="btn btn-outline-light rounded-circle m-2"
-            href="#!"
-            role="button"
-            ><i class="bi bi-instagram"></i
-          ></a>
-
           <!-- Linkedin -->
           <a
             class="btn btn-outline-light rounded-circle m-2"
-            href="#!"
+            href="https://www.linkedin.com/in/c%C4%83lin-corco%C8%9Boi-87145b162/"
             role="button"
             ><i class="bi bi-linkedin"></i
           ></a>
@@ -218,7 +202,7 @@
           <!-- Github -->
           <a
             class="btn btn-outline-light rounded-circle m-2"
-            href="#!"
+            href="https://github.com/calincorcotoi"
             role="button"
             ><i class="bi bi-github"></i
           ></a>
