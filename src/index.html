@@ -52,8 +52,8 @@
       </button>
 
       <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+        <ul class="navbar-nav ml-auto align-items-end">
+          <li class="nav-item">
             <a class="nav-link" href="#section--header">Home </a>
           </li>
           <li class="nav-item">
@@ -182,7 +182,12 @@
           keep doing what's right and improve what isn't.
         </h3>
       </div>
-      <button type="button" class="btn btn-info btn-send-message">
+      <button
+        type="button"
+        class="btn btn-info px-2"
+        data-toggle="modal"
+        data-target="#ModalCenter"
+      >
         <i class="bi bi-send-fill"> Send message </i>
       </button>
     </section>
@@ -215,6 +220,73 @@
       </div>
     </footer>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="ModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Send message</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="formGroupInputName">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupInputName"
+                  placeholder="Name Surname"
+                />
+              </div>
+              <div class="form-group">
+                <label for="formGroupInputEmail">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="formGroupInputEmail"
+                  placeholder="email@example.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="formGroupInputMessage">Message</label>
+                <textarea
+                  class="form-control"
+                  id="formGroupInputMessage"
+                  rows="3"
+                  placeholder="Your Message"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary btn-send-message">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -232,5 +304,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
   </body>
 </html>
