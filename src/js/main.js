@@ -7,17 +7,16 @@ btnSendMessage.addEventListener("click", function (e) {
   var email = document.getElementById("formGroupInputEmail").value;
   var message = document.getElementById("formGroupInputMessage").value;
 
-  console.log(name);
-  console.log(email);
-  console.log(message);
   Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "calin1996mh@gmail.com",
-    Password: "2438AEF7E3E78732E4C8CA2EB7B54EE4E465",
-    To: email,
-    From: "calin1996mh@gmail.com",
-    Subject: "Calin subject",
-    Body: "calin body",
+    SecureToken: "5e2012de-587b-44c9-b9b6-ad56399784af",
+    To: "calin.corcotoi@gmail.com",
+    From: "calin.corcotoi@gmail.com",
+    Subject: `Message from ${name}`,
+    Body: `
+    <h1>Email: </h1>${email}
+    <br>
+    <h1>Message: </h1>${message}
+    `,
   }).then((message) => alert(message));
 });
 
