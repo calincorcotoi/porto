@@ -1,5 +1,5 @@
-const navImgLogo = document.querySelector(".navbar__img-logo");
 const btnSendMessage = document.querySelector(".btn-send-message");
+const notificationContainer = document.getElementById("alert-container");
 
 //Send message
 btnSendMessage.addEventListener("click", function (e) {
@@ -17,10 +17,23 @@ btnSendMessage.addEventListener("click", function (e) {
     <br>
     <h1>Message: </h1>${message}
     `,
-  }).then((message) => alert(message));
+  }).then((message) => {
+    $("#ModalMessage").modal("hide");
+    var messageNotification;
+    if (message.includes("OK"))
+      messageNotification = addNotification(
+        "primary",
+        "Message send with succes!"
+      );
+    else messageNotification = addNotification("danger", message);
+
+    setTimeout(() => {
+      removeNotification(messageNotification);
+    }, 5000);
+  });
 });
 
-//Navigation
+//Scroll Navigation
 document.querySelector(".navbar-nav").addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -30,3 +43,32 @@ document.querySelector(".navbar-nav").addEventListener("click", function (e) {
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   }
 });
+
+//Show Alert(notification)
+// for types check this site :https://getbootstrap.com/docs/4.0/components/alerts/
+const addNotification = function (type, text) {
+  // create the DIV and add the required classes
+  const newNotification = document.createElement("div");
+  newNotification.classList.add("alert", `alert-${type}`);
+
+  const innerNotification = `
+  ${text}
+`;
+
+  // insert the inner elements
+  newNotification.innerHTML = innerNotification;
+
+  // add the newNotification to the container
+  notificationContainer.appendChild(newNotification);
+
+  return newNotification;
+};
+
+const removeNotification = function (notification) {
+  notification.classList.add("hide");
+
+  // remove notification from the DOM after 0.5 seconds
+  setTimeout(() => {
+    notificationContainer.removeChild(notification);
+  }, 500);
+};

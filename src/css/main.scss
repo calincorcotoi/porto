@@ -121,6 +121,40 @@
   background-color: #37383d;
 }
 
+/* Alert */
+.alert-container {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 500px;
+  max-width: calc(100% - 30px);
+}
+
+.alert {
+  animation: grow 0.5s ease-in forwards;
+}
+
+@keyframes grow {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.alert.hide {
+  animation: shrink 0.3s ease-out forwards;
+}
+
+@keyframes shrink {
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
 /*==================================
     TIMELINE
 ==================================*/
