@@ -1,6 +1,7 @@
 const btnSendMessage = document.querySelector(".btn-send-message");
 const notificationContainer = document.getElementById("alert-container");
-
+const menuToggle = document.getElementById("navbarSupportedContent");
+const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
 //Send message
 btnSendMessage.addEventListener("click", function (e) {
   var name = document.getElementById("formGroupInputName").value;
@@ -35,6 +36,8 @@ btnSendMessage.addEventListener("click", function (e) {
 
 //Scroll Navigation
 document.querySelector(".navbar-nav").addEventListener("click", function (e) {
+  if (screen.width < 990) bsCollapse.toggle();
+
   e.preventDefault();
 
   // Matching strategy
