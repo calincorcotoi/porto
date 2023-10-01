@@ -9,11 +9,11 @@ const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
 const homeAnchor = document.getElementById("homeAnchor");
 const IntersectionHome = function (entries) {
   const [entry] = entries;
-  console.log(entry);
-
-  if (entry.isIntersecting) homeAnchor.classList.add("active");
-  else homeAnchor.classList.remove("active");
+  if (entry.isIntersecting) {
+    homeAnchor.classList.add("active");
+  } else homeAnchor.classList.remove("active");
 };
+
 const sectionHeader = document.getElementById("section--header");
 const headerObserver = new IntersectionObserver(IntersectionHome, {
   root: null,
@@ -26,10 +26,13 @@ headerObserver.observe(sectionHeader);
 const aboutMeAnchor = document.getElementById("aboutMeAnchor");
 const IntersectionAboutMe = function (entries) {
   const [entry] = entries;
-  console.log(entry);
 
-  if (entry.isIntersecting) aboutMeAnchor.classList.add("active");
-  else aboutMeAnchor.classList.remove("active");
+  if (entry.isIntersecting) {
+    aboutMeAnchor.classList.add("active");
+    sectionAboutMe.classList.remove("section--hidden");
+  } else {
+    aboutMeAnchor.classList.remove("active");
+  }
 };
 const sectionAboutMe = document.getElementById("section-about-me");
 const aboutMeObserver = new IntersectionObserver(IntersectionAboutMe, {
@@ -43,10 +46,11 @@ aboutMeObserver.observe(sectionAboutMe);
 const feedbackAnchor = document.getElementById("feedbackAnchor");
 const IntersectionFeedback = function (entries) {
   const [entry] = entries;
-  console.log(entry);
 
-  if (entry.isIntersecting) feedbackAnchor.classList.add("active");
-  else feedbackAnchor.classList.remove("active");
+  if (entry.isIntersecting) {
+    feedbackAnchor.classList.add("active");
+    sectionFeedback.classList.remove("section--hidden");
+  } else feedbackAnchor.classList.remove("active");
 };
 const sectionFeedback = document.getElementById("section--feedback");
 const feedbackObserver = new IntersectionObserver(IntersectionFeedback, {
@@ -90,7 +94,6 @@ btnSendMessage.addEventListener("click", function (e) {
 //Scroll Navigation
 document.querySelector(".navbar-nav").addEventListener("click", function (e) {
   if (screen.width < 990) bsCollapse.toggle();
-
   e.preventDefault();
 
   // Matching strategy

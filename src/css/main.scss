@@ -115,6 +115,11 @@
   padding: 2rem 5rem;
 }
 
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
 /* FOOTER */
 .footer {
   padding: 10rem 3rem;
