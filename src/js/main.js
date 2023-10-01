@@ -2,6 +2,59 @@ const btnSendMessage = document.querySelector(".btn-send-message");
 const notificationContainer = document.getElementById("alert-container");
 const menuToggle = document.getElementById("navbarSupportedContent");
 const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+
+//Scroll Action
+//Show what section is active
+//-header
+const homeAnchor = document.getElementById("homeAnchor");
+const IntersectionHome = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (entry.isIntersecting) homeAnchor.classList.add("active");
+  else homeAnchor.classList.remove("active");
+};
+const sectionHeader = document.getElementById("section--header");
+const headerObserver = new IntersectionObserver(IntersectionHome, {
+  root: null,
+  threshold: 0.3,
+});
+
+headerObserver.observe(sectionHeader);
+
+//-about me
+const aboutMeAnchor = document.getElementById("aboutMeAnchor");
+const IntersectionAboutMe = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (entry.isIntersecting) aboutMeAnchor.classList.add("active");
+  else aboutMeAnchor.classList.remove("active");
+};
+const sectionAboutMe = document.getElementById("section-about-me");
+const aboutMeObserver = new IntersectionObserver(IntersectionAboutMe, {
+  root: null,
+  threshold: 0.3,
+});
+
+aboutMeObserver.observe(sectionAboutMe);
+
+//-feedback
+const feedbackAnchor = document.getElementById("feedbackAnchor");
+const IntersectionFeedback = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (entry.isIntersecting) feedbackAnchor.classList.add("active");
+  else feedbackAnchor.classList.remove("active");
+};
+const sectionFeedback = document.getElementById("section--feedback");
+const feedbackObserver = new IntersectionObserver(IntersectionFeedback, {
+  root: null,
+  threshold: 0.3,
+});
+
+feedbackObserver.observe(sectionFeedback);
 //Send message
 btnSendMessage.addEventListener("click", function (e) {
   var name = document.getElementById("formGroupInputName").value;
@@ -23,8 +76,8 @@ btnSendMessage.addEventListener("click", function (e) {
     var messageNotification;
     if (message.includes("OK"))
       messageNotification = addNotification(
-        "primary",
-        "Message send with succes!"
+        "success",
+        "Message send with success!"
       );
     else messageNotification = addNotification("danger", message);
 
