@@ -34,7 +34,7 @@ const IntersectionAboutMe = function (entries) {
 const sectionAboutMe = document.getElementById("section-about-me");
 const aboutMeObserver = new IntersectionObserver(IntersectionAboutMe, {
   root: null,
-  threshold: 0.3,
+  threshold: 0.1,
 });
 
 aboutMeObserver.observe(sectionAboutMe);
